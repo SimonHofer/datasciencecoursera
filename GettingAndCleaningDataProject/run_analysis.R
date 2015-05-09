@@ -1,4 +1,4 @@
-## general info
+## Getting and Cleaning Data Course Project
 
 ## 1.Merges the training and the test sets to create one data set
 filenamesTest <- list.files("test", pattern="*.txt", full.names=TRUE)
@@ -37,3 +37,4 @@ for(i in 1:nrow(tableExtracted)){ ## nrow(tableExtracted)
 ## with the average of each variable for each activity and each subject
 rownames(tableExtracted) <- NULL ## removing unnecassary row
 tidyData <- aggregate(.~ Subject + Activity, tableExtracted, mean)
+write.table(tidyData, file="tidyData.txt", row.name=FALSE)
